@@ -57,7 +57,7 @@ export default function Day10() {
           <li>Celebrate your wins — no matter how small!</li>
         </ul>
         <PlaceholderNote>
-          PLACEHOLDER: Add any specific next steps, resources, or training that new distributors should focus on after completing the 10-day launch.
+          PLACEHOLDER: Add any specific next steps, resources, or training that new team members should focus on after completing the 10-day launch.
         </PlaceholderNote>
       </TaskBlock>
 

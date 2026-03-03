@@ -7,9 +7,9 @@ const pages = [
   {
     group: "Funnel Entry",
     items: [
-      { label: "Opt-In Page", path: "/launch", description: "New distributor opt-in form with GHL webhook" },
+      { label: "Opt-In Page", path: "/launch", description: "New team member opt-in form with GHL webhook" },
       { label: "Thank You / Confirmation", path: "/launch-plan-invite-confirmation", description: "Shown immediately after opt-in" },
-      { label: "Welcome Page", path: "/launch-plan-welcome", description: "Emailed to new distributor — overview + next steps" },
+      { label: "Welcome Page", path: "/launch-plan-welcome", description: "Emailed to new team member — overview + next steps" },
     ],
   },
   {

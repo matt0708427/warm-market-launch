@@ -2,7 +2,7 @@
  * ============================================================
  *  10-Day Warm Market Launch — Site Configuration
  * ============================================================
- *  CUSTOMIZE THIS FILE when personalizing for a new distributor.
+ *  CUSTOMIZE THIS FILE when personalizing for a new team leader.
  *  All placeholder values are marked with [PLACEHOLDER].
  *
  *  In a future session, this file will be updated with:
