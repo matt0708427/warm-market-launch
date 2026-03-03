@@ -135,12 +135,8 @@ export default function Launch() {
           />
         </div>
 
-        {/* SMS Consent — clean bordered block */}
-        <div
-          className={`rounded-lg border p-4 ${
-            errors.smsConsent ? "border-red-300 bg-red-50" : "border-gray-200 bg-gray-50"
-          }`}
-        >
+        {/* SMS Consent */}
+        <div className="pt-1">
           <label className="flex gap-3 cursor-pointer" htmlFor="sms-consent">
             {/* Custom checkbox */}
             <div className="relative mt-0.5 shrink-0">
