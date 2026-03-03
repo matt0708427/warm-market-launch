@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opt-In to the [Your Team Name] Launch Plan Now!</title>
+  <meta name="description" content="Everything You Need to Launch Your Business & Immediately Start Attracting Prospects to What You Have!" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="logo-wrap">
+      <!-- PLACEHOLDER: Replace with <img src="images/logo.png" alt="[Your Team Name]"> -->
+      <div class="logo-placeholder">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        LOGO HERE
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="page-wrapper">
+
+    <div style="text-align:center; margin-bottom: 28px;">
+      <p class="optin-headline">Opt-In to the <strong><span class="team-name">[Your Team Name]</span></strong> Launch Plan Now!</p>
+      <h1 class="optin-hero-headline">Everything You Need to Launch Your Business &amp; Immediately Start Attracting Prospects to What You Have!</h1>
+      <p class="optin-subheadline">Opt-in to Receive a 10-Day Launch Plan and Other Team Training Updates via SMS &amp; Email</p>
+    </div>
+
+    <!-- OPT-IN FORM -->
+    <form class="optin-form" id="optin-form" novalidate>
+
+      <div class="form-group">
+        <input type="text" name="first_name" id="first_name" placeholder="First Name" autocomplete="given-name" />
+      </div>
+
+      <div class="form-group">
+        <input type="text" name="last_name" id="last_name" placeholder="Last Name" autocomplete="family-name" />
+      </div>
+
+      <div class="form-group">
+        <input type="email" name="email" id="email" placeholder="Best Email *" autocomplete="email" required />
+      </div>
+
+      <div class="form-group">
+        <input type="tel" name="phone" id="phone" placeholder="Personal Cell" autocomplete="tel" />
+      </div>
+
+      <div class="consent-row">
+        <input type="checkbox" name="sms_consent" id="sms_consent" />
+        <label for="sms_consent">
+          I Consent to Receive SMS Notifications, Alerts &amp; Occasional Marketing Communication from <span class="team-name">[Your Team Name]</span>. Message frequency varies. Message &amp; data rates may apply. You can reply STOP to unsubscribe at any time.
+        </label>
+      </div>
+
+      <div id="form-error" style="display:none; color:#c0392b; font-size:0.88rem; margin-bottom:12px; padding: 8px 12px; background:#fdecea; border-radius:4px;"></div>
+
+      <button type="submit" class="btn-primary">
+        <span id="btn-text">Let's Get Started</span>
+        <span id="btn-spinner" style="display:none;">Submitting&hellip;</span>
+      </button>
+
+    </form>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div>
+      <a href="terms.html" data-link="terms">Terms and Conditions</a> |
+      <a href="privacy.html" data-link="privacy">Privacy Policy</a>
+    </div>
+    <div class="footer-brand">
+      &copy; <span class="copyright-year"></span> <span class="team-brand">[Your Team Brand]</span> &mdash; All Rights Reserved
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/optin.js"></script>
+
+</body>
+</html>
