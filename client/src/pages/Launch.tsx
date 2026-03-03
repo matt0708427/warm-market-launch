@@ -4,9 +4,6 @@ import PageLayout from "@/components/PageLayout";
 import { siteConfig } from "@/lib/siteConfig";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
-import { toast } from "sonner";
 
 export default function Launch() {
   const [, navigate] = useLocation();
@@ -24,8 +21,10 @@ export default function Launch() {
     const errs: Record<string, string> = {};
     if (!form.firstName.trim()) errs.firstName = "First name is required.";
     if (!form.email.trim()) errs.email = "Email address is required.";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errs.email = "Please enter a valid email.";
-    if (!form.smsConsent) errs.smsConsent = "Please check the consent box to continue.";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
+      errs.email = "Please enter a valid email.";
+    if (!form.smsConsent)
+      errs.smsConsent = "Please check the consent box to continue.";
     return errs;
   }
 
@@ -70,22 +69,27 @@ export default function Launch() {
 
   return (
     <PageLayout>
+      {/* Page heading */}
       <div className="text-center mb-8">
         <p className="text-sm text-gray-500 mb-2">
           Opt-In to the <strong>{siteConfig.teamName}</strong> Launch Plan Now!
         </p>
         <h1 className="text-3xl font-black text-gray-900 font-['Montserrat'] leading-tight mb-3">
-          Everything You Need to Launch Your Business &amp; Immediately Start Attracting Prospects to What You Have!
+          Everything You Need to Launch Your Business &amp; Immediately Start
+          Attracting Prospects to What You Have!
         </h1>
         <p className="text-gray-500 text-base">
-          Opt-in to Receive a 10-Day Launch Plan and Other Team Training Updates via SMS &amp; Email
+          Opt-in to Receive a 10-Day Launch Plan and Other Team Training Updates
+          via SMS &amp; Email
         </p>
       </div>
 
+      {/* Form card */}
       <form
         onSubmit={handleSubmit}
         className="bg-white border border-gray-200 rounded-xl shadow-sm p-7 max-w-lg mx-auto space-y-4"
       >
+        {/* Name row */}
         <div className="grid grid-cols-2 gap-3">
           <div>
             <Input
@@ -94,7 +98,9 @@ export default function Launch() {
               onChange={(e) => setForm({ ...form, firstName: e.target.value })}
               className={errors.firstName ? "border-red-400" : ""}
             />
-            {errors.firstName && <p className="text-red-500 text-xs mt-1">{errors.firstName}</p>}
+            {errors.firstName && (
+              <p className="text-red-500 text-xs mt-1">{errors.firstName}</p>
+            )}
           </div>
           <div>
             <Input
@@ -105,6 +111,7 @@ export default function Launch() {
           </div>
         </div>
 
+        {/* Email */}
         <div>
           <Input
             type="email"
@@ -113,9 +120,12 @@ export default function Launch() {
             onChange={(e) => setForm({ ...form, email: e.target.value })}
             className={errors.email ? "border-red-400" : ""}
           />
-          {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+          {errors.email && (
+            <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+          )}
         </div>
 
+        {/* Phone */}
         <div>
           <Input
             type="tel"
@@ -125,23 +135,71 @@ export default function Launch() {
           />
         </div>
 
-        <div className="flex items-start gap-3 pt-1">
-          <Checkbox
-            id="sms-consent"
-            checked={form.smsConsent}
-            onCheckedChange={(checked) => setForm({ ...form, smsConsent: !!checked })}
-            className="mt-0.5 shrink-0"
-          />
-          <Label htmlFor="sms-consent" className="text-xs text-gray-500 leading-relaxed cursor-pointer">
-            I Consent to Receive SMS Notifications, Alerts &amp; Occasional Marketing Communication from <strong>{siteConfig.teamName}</strong>. Message frequency varies. Message &amp; data rates may apply. You can reply STOP to unsubscribe at any time.
-          </Label>
-        </div>
-        {errors.smsConsent && <p className="text-red-500 text-xs -mt-2">{errors.smsConsent}</p>}
+        {/* SMS Consent — clean bordered block */}
+        <div
+          className={`rounded-lg border p-4 ${
+            errors.smsConsent ? "border-red-300 bg-red-50" : "border-gray-200 bg-gray-50"
+          }`}
+        >
+          <label className="flex gap-3 cursor-pointer" htmlFor="sms-consent">
+            {/* Custom checkbox */}
+            <div className="relative mt-0.5 shrink-0">
+              <input
+                id="sms-consent"
+                type="checkbox"
+                checked={form.smsConsent}
+                onChange={(e) =>
+                  setForm({ ...form, smsConsent: e.target.checked })
+                }
+                className="sr-only"
+              />
+              <div
+                onClick={() =>
+                  setForm({ ...form, smsConsent: !form.smsConsent })
+                }
+                className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-colors ${
+                  form.smsConsent
+                    ? "border-teal-500 bg-teal-500"
+                    : "border-gray-400 bg-white"
+                }`}
+              >
+                {form.smsConsent && (
+                  <svg
+                    className="w-3 h-3 text-white"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                  >
+                    <path
+                      d="M2 6l3 3 5-5"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                )}
+              </div>
+            </div>
 
+            {/* Consent text */}
+            <span className="text-xs text-gray-600 leading-relaxed">
+              I Consent to Receive SMS Notifications, Alerts &amp; Occasional
+              Marketing Communication from{" "}
+              <strong className="text-gray-800">{siteConfig.teamName}</strong>.
+              Message frequency varies. Message &amp; data rates may apply. You
+              can reply <strong>STOP</strong> to unsubscribe at any time.
+            </span>
+          </label>
+        </div>
+        {errors.smsConsent && (
+          <p className="text-red-500 text-xs -mt-2">{errors.smsConsent}</p>
+        )}
+
+        {/* Submit */}
         <Button
           type="submit"
           disabled={loading}
-          className="w-full text-base font-bold py-6 font-['Montserrat']"
+          className="w-full text-base font-bold py-6 font-['Montserrat'] hover:opacity-90 transition-opacity"
           style={{ backgroundColor: "var(--brand-green)", color: "white" }}
         >
           {loading ? "Submitting…" : "Let's Get Started"}

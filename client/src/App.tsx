@@ -21,10 +21,14 @@ import Day10 from "./pages/Day10";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
+import SiteNav from "./pages/SiteNav";
 
 function Router() {
   return (
     <Switch>
+      {/* Site navigation / page directory */}
+      <Route path="/nav" component={SiteNav} />
+
       {/* Opt-In page */}
       <Route path="/" component={Launch} />
       <Route path="/launch" component={Launch} />
